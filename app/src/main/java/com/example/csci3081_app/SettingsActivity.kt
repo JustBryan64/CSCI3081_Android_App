@@ -1,10 +1,12 @@
 package com.example.csci3081_app
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.RadioButton // Use this one
+import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class SettingsActivity : AppCompatActivity() {
@@ -16,14 +18,12 @@ class SettingsActivity : AppCompatActivity() {
         val iconRadioGroup = findViewById<RadioGroup>(R.id.iconRadioGroup)
         val difficultyRadioGroup = findViewById<RadioGroup>(R.id.difficultyRadioGroup)
         val beginButton = findViewById<Button>(R.id.beginButton)
+        val resetScoreButton = findViewById<Button>(R.id.resetScoreButton)
 
         beginButton.setOnClickListener {
-            // Get selected player icon
             val selectedIconId = iconRadioGroup.checkedRadioButtonId
-            // Use the standard android.widget.RadioButton
             val selectedIcon = findViewById<RadioButton>(selectedIconId).text.toString()
 
-            // Get selected difficulty
             val selectedDifficultyId = difficultyRadioGroup.checkedRadioButtonId
             val difficulty = when (selectedDifficultyId) {
                 R.id.radioEasy -> "Easy"
@@ -32,12 +32,20 @@ class SettingsActivity : AppCompatActivity() {
                 else -> "Easy"
             }
 
-            // Start MainActivity and pass the settings
             val intent = Intent(this, MainActivity::class.java).apply {
                 putExtra("PLAYER_ICON", selectedIcon)
                 putExtra("DIFFICULTY", difficulty)
             }
             startActivity(intent)
+        }
+
+        resetScoreButton.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("TicTacToeScores", Context.MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                clear()
+                apply()
+            }
+            Toast.makeText(this, "Scores have been reset!", Toast.LENGTH_SHORT).show()
         }
     }
 }
