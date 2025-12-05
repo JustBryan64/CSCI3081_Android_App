@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Settings"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/iconLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Your Icon:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"/>
+
+    <RadioGroup
+        android:id="@+id/iconRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iconLabel"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:checked="true"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/radioO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/difficultyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select AI Difficulty:"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/iconRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <RadioGroup
+        android:id="@+id/difficultyRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/difficultyLabel"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioEasy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Easy (Random)"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium (Blocks Sometimes)"/>
+
+        <RadioButton
+            android:id="@+id/radioHard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hard (Unbeatable)"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/beginButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Begin Game"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

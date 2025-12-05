@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="board_color">#FF000000</color> <!-- Black for the grid lines -->
+    <color name="player_x_color">#FF5722</color>  <!-- An orange for X -->
+    <color name="player_o_color">#2196F3</color>
 </resources>
